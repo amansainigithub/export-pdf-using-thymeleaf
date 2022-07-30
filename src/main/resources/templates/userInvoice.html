@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+table, th, td {
+  border: 1px solid;
+}
+
+@page {
+  @bottom-left {
+    content: counter(page) ' of ' counter(pages);
+  }
+}
+</style>
+
+<body>
+
+<h1>Hey</h1>
+
+<div class="text-xl font-bold" th:text="${userData.title}"></div>
+
+
+
+<h2>Add a border to a table:</h2>
+
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Body</th>
+            </tr>
+            <tr  th:each="node : ${iterateData}">
+
+                <td th:text="${node.id}"></td>
+                <td th:text="${node.title}"></td>
+                <td th:text="${node.body}"></td>
+
+            </tr>
+        </table>
+
+</body>
+</html>
